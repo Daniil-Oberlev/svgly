@@ -1,0 +1,35 @@
+pre-commit:
+  parallel: true
+  commands:
+    oxlint:
+      glob: '{*.{ts,vue},src/**/*.{ts,vue}}'
+      run: pnpm lint:oxlint {staged_files}
+      stage_fixed: true
+
+    eslint:
+      glob: '{*.{ts,vue},src/**/*.{ts,vue}}'
+      run: pnpm lint:eslint {staged_files}
+      stage_fixed: true
+
+    formatting:
+      glob: '{*.{ts,vue},src/**/*.{ts,vue}}'
+      run: pnpm format {staged_files}
+      stage_fixed: true
+
+    type-check:
+      run: pnpm type-check
+
+commit-msg:
+  commands:
+    commitlint:
+      run: npx commitlint --edit {1}
+
+pre-push:
+  commands:
+    build:
+      run: pnpm build
+
+post-commit:
+  commands:
+    notify:
+      run: echo "Коммит успешно создан!"
