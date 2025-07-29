@@ -3,14 +3,14 @@ module.exports = {
   parserPreset: {
     parserOpts: {
       headerPattern: /^(\w+)\((\w[\w-]*)\): (.*)$/,
-      headerCorrespondence: ['type', 'scope', 'subject'],
-    },
+      headerCorrespondence: ['type', 'scope', 'subject']
+    }
   },
   rules: {
     'type-enum': [
       2,
       'always',
-      ['feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore', 'swag'],
+      ['feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore', 'swag']
     ],
     'subject-case': [2, 'always', 'lower-case'], // Тема в нижнем регистре
     'subject-max-length': [2, 'always', 70],
@@ -38,10 +38,10 @@ module.exports = {
         'themes',
         'a11y',
         'security',
-        'other',
-      ],
+        'other'
+      ]
     ],
-    'scope-case': [2, 'always', 'lower-case'],
+    'scope-case': [2, 'always', 'lower-case']
   },
-  formatter: '@commitlint/format',
+  formatter: '@commitlint/format'
 }

@@ -15,8 +15,8 @@ export default defineConfigWithVueTs(
       sourceType: 'module',
       parserOptions: {
         project: './tsconfig.json',
-        tsconfigRootDir: import.meta.dirname,
-      },
+        tsconfigRootDir: import.meta.dirname
+      }
     },
     rules: {
       '@typescript-eslint/explicit-function-return-type': 'error',
@@ -50,23 +50,23 @@ export default defineConfigWithVueTs(
             ref: false,
             props: false,
             args: false,
-            env: true,
-          },
-        },
+            env: true
+          }
+        }
       ],
       'unicorn/filename-case': [
         'error',
         {
-          cases: { kebabCase: true, pascalCase: true },
-        },
+          cases: { kebabCase: true, pascalCase: true }
+        }
       ],
       'unicorn/no-useless-undefined': 'error',
       'unicorn/prefer-optional-catch-binding': 'error',
       'unicorn/no-unreadable-array-destructuring': 'error',
 
       'unicorn/number-literal-case': 'off',
-      'unicorn/template-indent': 'off',
-    },
+      'unicorn/template-indent': 'off'
+    }
   },
 
   globalIgnores(['**/dist/**', '**/dist-ssr/**', '**/coverage/**']),
@@ -79,5 +79,5 @@ export default defineConfigWithVueTs(
 
   pluginUnicorn.configs['recommended'],
 
-  skipFormatting,
+  skipFormatting
 )

@@ -1,0 +1,17 @@
+:root {
+  --main-font: Inter-Variable;
+
+  --primary-hue: 0;
+  --secondary-hue: 0;
+
+  --radius: 0.5rem;
+
+  --primary-color: #fff;
+  --secondary-color: #000;
+
+  --background-primary: hsl(var(--primary-hue) 0% 100% / 1);
+  --background-secondary: hsl(var(--primary-hue) 0% 98% / 1);
+  --background-tertiary: hsl(var(--primary-hue) 0% 96% / 1);
+
+  --border-color: hsl(var(--primary-hue) 0% 80% / 1);
+}

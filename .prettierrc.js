@@ -10,5 +10,6 @@ export default {
   endOfLine: 'lf',
   arrowParens: 'avoid',
   quoteProps: 'consistent',
-  singleAttributePerLine: true
+  singleAttributePerLine: true,
+  vueIndentScriptAndStyle: true
 }

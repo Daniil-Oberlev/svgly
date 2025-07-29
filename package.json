@@ -15,7 +15,7 @@
     "lint:oxlint": "oxlint --fix -D correctness --ignore-path .gitignore",
     "lint:eslint": "eslint --fix --cache --cache-location node_modules/.cache/eslint/",
     "lint": "run-s lint:*",
-    "format": "prettier --write",
+    "format": "prettier --write .",
     "release": "standard-version"
   },
   "standard-version": {
@@ -63,6 +63,8 @@
     }
   },
   "dependencies": {
+    "@vueuse/core": "^13.6.0",
+    "lucide-vue-next": "^0.533.0",
     "vue": "^3.5.18"
   },
   "devDependencies": {

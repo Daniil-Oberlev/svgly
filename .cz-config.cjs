@@ -7,7 +7,7 @@ module.exports = {
     { value: 'refactor', name: '♻️ refactor: Рефакторинг' },
     { value: 'test', name: '🧪 test: Тесты' },
     { value: 'chore', name: '🧹 chore: Линтеры, конфиги' },
-    { value: 'swag', name: '💅 swag: Релиз' },
+    { value: 'swag', name: '💅 swag: Релиз' }
   ],
   scopes: [
     { name: 'components' },
@@ -30,7 +30,7 @@ module.exports = {
     { name: 'themes' },
     { name: 'a11y' },
     { name: 'security' },
-    { name: 'other' },
+    { name: 'other' }
   ],
   skipQuestions: ['breaking', 'body'],
   subjectLimit: 70,
@@ -38,6 +38,6 @@ module.exports = {
     type: 'Выберите тип изменения:',
     scope: '\nУкажите SCOPE изменения (обязательно):',
     subject: 'Напишите КОРОТКОЕ описание:\n',
-    confirmCommit: 'Вас устраивает получившийся коммит?',
-  },
+    confirmCommit: 'Вас устраивает получившийся коммит?'
+  }
 }
