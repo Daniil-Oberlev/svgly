@@ -1,14 +1,14 @@
 <script setup lang="ts">
-  defineProps({
-    variant: {
-      type: String,
-      default: 'primary',
-      validator: (value: string) => ['primary', 'secondary'].includes(value)
-    },
-    disabled: {
-      type: Boolean,
-      default: false
-    }
+  type ButtonVariant = 'primary' | 'secondary'
+
+  interface ButtonProperties {
+    variant?: ButtonVariant
+    disabled?: boolean
+  }
+
+  withDefaults(defineProps<ButtonProperties>(), {
+    variant: 'primary',
+    disabled: false
   })
 </script>
 
@@ -47,48 +47,48 @@
 
   /* Primary button */
   .button--primary {
-    background-color: hsl(var(--primary-hue, 0) 0% 95% / 1); /* Светлый фон в светлой теме */
-    color: hsl(var(--primary-hue, 0) 0% 10% / 1); /* Темный текст */
-    border-color: hsl(var(--primary-hue, 0) 0% 80% / 1);
+    background-color: hsl(var(--primary-hue, 0) 0% 95%); /* Светлый фон в светлой теме */
+    color: hsl(var(--primary-hue, 0) 0% 10%); /* Темный текст */
+    border-color: hsl(var(--primary-hue, 0) 0% 80%);
   }
 
   .theme-dark .button--primary {
-    background-color: hsl(var(--primary-hue, 0) 0% 10% / 1); /* Темный фон в темной теме */
-    color: hsl(var(--primary-hue, 0) 0% 95% / 1); /* Светлый текст */
-    border-color: hsl(var(--primary-hue, 0) 0% 20% / 1);
+    background-color: hsl(var(--primary-hue, 0) 0% 10%); /* Темный фон в темной теме */
+    color: hsl(var(--primary-hue, 0) 0% 95%); /* Светлый текст */
+    border-color: hsl(var(--primary-hue, 0) 0% 20%);
   }
 
   .button--primary:hover:not(:disabled) {
-    background-color: hsl(var(--primary-hue, 0) 0% 85% / 1); /* Осветление/затемнение для hover */
-    border-color: hsl(var(--primary-hue, 0) 0% 70% / 1);
+    background-color: hsl(var(--primary-hue, 0) 0% 85%); /* Осветление/затемнение для hover */
+    border-color: hsl(var(--primary-hue, 0) 0% 70%);
   }
 
   .theme-dark .button--primary:hover:not(:disabled) {
-    background-color: hsl(var(--primary-hue, 0) 0% 20% / 1); /* Легкое осветление для темной темы */
-    border-color: hsl(var(--primary-hue, 0) 0% 30% / 1);
+    background-color: hsl(var(--primary-hue, 0) 0% 20%); /* Легкое осветление для темной темы */
+    border-color: hsl(var(--primary-hue, 0) 0% 30%);
   }
 
   /* Secondary button */
   .button--secondary {
-    background-color: hsl(var(--secondary-hue, 0) 0% 10% / 1); /* Темный фон в светлой теме */
-    color: hsl(var(--primary-hue, 0) 0% 95% / 1); /* Светлый текст */
-    border-color: hsl(var(--primary-hue, 0) 0% 80% / 1);
+    background-color: hsl(var(--secondary-hue, 0) 0% 10%); /* Темный фон в светлой теме */
+    color: hsl(var(--primary-hue, 0) 0% 95%); /* Светлый текст */
+    border-color: hsl(var(--primary-hue, 0) 0% 80%);
   }
 
   .theme-dark .button--secondary {
-    background-color: hsl(var(--secondary-hue, 0) 0% 95% / 1); /* Светлый фон в темной теме */
-    color: hsl(var(--primary-hue, 0) 0% 10% / 1); /* Темный текст */
-    border-color: hsl(var(--primary-hue, 0) 0% 20% / 1);
+    background-color: hsl(var(--secondary-hue, 0) 0% 95%); /* Светлый фон в темной теме */
+    color: hsl(var(--primary-hue, 0) 0% 10%); /* Темный текст */
+    border-color: hsl(var(--primary-hue, 0) 0% 20%);
   }
 
   .button--secondary:hover:not(:disabled) {
-    background-color: hsl(var(--secondary-hue, 0) 0% 20% / 1); /* Осветление для светлой темы */
-    border-color: hsl(var(--primary-hue, 0) 0% 70% / 1);
+    background-color: hsl(var(--secondary-hue, 0) 0% 20%); /* Осветление для светлой темы */
+    border-color: hsl(var(--primary-hue, 0) 0% 70%);
   }
 
   .theme-dark .button--secondary:hover:not(:disabled) {
-    background-color: hsl(var(--secondary-hue, 0) 0% 85% / 1); /* Затемнение для темной темы */
-    border-color: hsl(var(--primary-hue, 0) 0% 30% / 1);
+    background-color: hsl(var(--secondary-hue, 0) 0% 85%); /* Затемнение для темной темы */
+    border-color: hsl(var(--primary-hue, 0) 0% 30%);
   }
 
   .button:focus {
@@ -96,7 +96,7 @@
   }
 
   .button:focus-visible {
-    outline: 2px solid hsl(var(--primary-hue, 0) 0% 50% / 1);
+    outline: 2px solid hsl(var(--primary-hue, 0) 0% 50%);
     outline-offset: 2px;
   }
 

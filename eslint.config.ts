@@ -57,7 +57,7 @@ export default defineConfigWithVueTs(
       'unicorn/filename-case': [
         'error',
         {
-          cases: { kebabCase: true, pascalCase: true }
+          cases: { kebabCase: true, pascalCase: true, camelCase: true }
         }
       ],
       'unicorn/no-useless-undefined': 'error',
@@ -66,6 +66,13 @@ export default defineConfigWithVueTs(
 
       'unicorn/number-literal-case': 'off',
       'unicorn/template-indent': 'off'
+    }
+  },
+  {
+    name: 'app/composables-disable-filename-case',
+    files: ['composables/**/*.{ts,mts}'],
+    rules: {
+      'unicorn/filename-case': 'off'
     }
   },
 

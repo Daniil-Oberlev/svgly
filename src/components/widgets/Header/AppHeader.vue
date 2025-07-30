@@ -3,7 +3,7 @@
 
   import ThemeToggle from './ThemeToggle.vue'
 
-  import TypographyH1 from '@/components/shared/Typography/TypographyH1.vue'
+  import TypographyHeading from '@/components/shared/Typography/TypographyHeading.vue'
   import AppButton from '@/components/shared/Buttons/AppButton.vue'
 </script>
 
@@ -11,7 +11,7 @@
   <header class="header">
     <div class="header__logo">
       <Zap />
-      <TypographyH1>svgly</TypographyH1>
+      <TypographyHeading tag="h1">svgly</TypographyHeading>
     </div>
 
     <div class="header__actions--buttons">
@@ -26,6 +26,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 1rem 0.5rem;
     background-color: var(--background-primary);
   }
 
