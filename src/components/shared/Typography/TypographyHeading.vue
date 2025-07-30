@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  type HeadingTag = 'h1'
+  type HeadingTag = 'h1' | 'h2'
 
   interface HeadingProperties {
     tag: HeadingTag

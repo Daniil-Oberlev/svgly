@@ -30,6 +30,7 @@
     align-items: center;
     height: 2.5rem;
     padding: 0.5rem 1rem;
+    width: 100%;
     cursor: pointer;
     border-radius: calc(var(--radius) - 2px);
     border: 1px solid transparent;
