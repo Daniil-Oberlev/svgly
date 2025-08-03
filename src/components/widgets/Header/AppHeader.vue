@@ -1,14 +1,11 @@
 <script setup lang="ts">
   import { HeaderLogo, HeaderActionsButtons } from './components'
-  import type { LoginEmits } from '~/@types/auth'
-
-  defineEmits<LoginEmits>()
 </script>
 
 <template>
   <header class="header">
     <HeaderLogo />
-    <HeaderActionsButtons @login="$emit('login', 'yandex')" />
+    <HeaderActionsButtons />
   </header>
 </template>
 
@@ -19,5 +16,6 @@
     justify-content: space-between;
     padding: 1rem 0.5rem;
     background-color: var(--background-primary);
+    border-bottom: 1px solid var(--border-color);
   }
 </style>

@@ -1,6 +1,7 @@
 body,
 h1,
 h2,
+h3,
 p,
 a,
 button,
@@ -25,17 +26,18 @@ body {
 }
 
 h1,
-h2 {
+h2,
+h3 {
   color: var(--secondary-color);
 }
 
-.link {
+a {
   color: var(--secondary-color);
   text-decoration: underline;
   text-underline-offset: 2px;
   transition: opacity 0.2s ease;
 }
 
-.link:hover {
+a:hover {
   opacity: 0.8;
 }
