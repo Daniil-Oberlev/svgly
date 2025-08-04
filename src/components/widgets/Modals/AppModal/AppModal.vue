@@ -75,6 +75,7 @@
     background-color: var(--background-primary);
     padding: 1.5rem;
     text-align: left;
+    border: 1px solid var(--border-color);
   }
 
   .dialog__form--title {
