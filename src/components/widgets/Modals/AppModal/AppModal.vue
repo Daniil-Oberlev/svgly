@@ -5,7 +5,7 @@
 
   import AppButton from '@/components/shared/Buttons/AppButton.vue'
 
-  const isOpen = ref(true)
+  const isOpen = ref(false)
 
   const closeModal = (): void => {
     isOpen.value = false
