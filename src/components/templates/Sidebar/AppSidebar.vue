@@ -10,7 +10,7 @@
 
 <style scoped lang="css">
   .aside {
-    min-height: calc(100vh - 2.5rem - 2px - 2rem);
+    height: calc(100vh - 2.5rem - 2px - 2rem);
     min-width: 300px;
     background-color: var(--background-tertiary);
     padding: 0.5rem;

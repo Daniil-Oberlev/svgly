@@ -1,17 +1,17 @@
 <script setup lang="ts">
-  import { ref } from 'vue'
-
   import IconModal from '@/components/widgets/Modals/IconModal/IconModal.vue'
 
-  const iconName = ref('align-end-vertical')
+  import { useIcon } from '@/composables/useIcon'
+
+  const { currentIconName } = useIcon()
 </script>
 
 <template>
   <div class="icon__form">
     <label>Иконка</label>
     <div class="icon__form-button-component">
-      <IconModal v-model="iconName" />
-      <span>{{ iconName }}</span>
+      <IconModal v-model="currentIconName" />
+      <span>{{ currentIconName }}</span>
     </div>
   </div>
 </template>
