@@ -18,50 +18,6 @@
     "format": "prettier --write .",
     "release": "standard-version"
   },
-  "standard-version": {
-    "types": [
-      {
-        "type": "feat",
-        "section": "🚀 Новый функционал"
-      },
-      {
-        "type": "fix",
-        "section": "🩹 Исправления"
-      },
-      {
-        "type": "docs",
-        "section": "📚 Документация"
-      },
-      {
-        "type": "style",
-        "hidden": true
-      },
-      {
-        "type": "chore",
-        "hidden": true
-      },
-      {
-        "type": "refactor",
-        "section": "♻️ Рефакторинг"
-      },
-      {
-        "type": "test",
-        "section": "🧪 Тесты"
-      },
-      {
-        "type": "swag",
-        "section": "💅 Релиз"
-      }
-    ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-customizable"
-    },
-    "cz-customizable": {
-      "config": ".cz-config.cjs"
-    }
-  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.0.0",
     "@fortawesome/free-brands-svg-icons": "^7.0.0",
@@ -84,7 +40,6 @@
     "@vue/tsconfig": "^0.7.0",
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
-    "cz-customizable": "^7.4.0",
     "eslint": "^9.31.0",
     "eslint-plugin-oxlint": "~1.8.0",
     "eslint-plugin-unicorn": "^60.0.0",
