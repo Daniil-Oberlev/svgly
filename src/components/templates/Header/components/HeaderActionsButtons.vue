@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import ThemeToggle from './ThemeToggle.vue'
-  import LoginModal from '@/components/widgets/Modals/Login/LoginModal.vue'
+  import LoginModal from '@/components/widgets/Modals/LoginModal/LoginModal.vue'
 </script>
 
 <template>

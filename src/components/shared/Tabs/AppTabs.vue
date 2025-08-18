@@ -1,5 +1,7 @@
 <script setup lang="ts">
   import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
+
+  import { BackgroundTabMenu, IconTabMenu } from '@/components/templates/Sidebar/components'
 </script>
 
 <template>
@@ -19,8 +21,8 @@
       </Tab>
     </TabList>
     <TabPanels class="tabs-content">
-      <TabPanel class="tabs-panel">Content 1</TabPanel>
-      <TabPanel class="tabs-panel">Content 2</TabPanel>
+      <TabPanel class="tabs-panel"><IconTabMenu /></TabPanel>
+      <TabPanel class="tabs-panel"><BackgroundTabMenu /></TabPanel>
     </TabPanels>
   </TabGroup>
 </template>

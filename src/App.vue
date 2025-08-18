@@ -1,6 +1,5 @@
 <script setup lang="ts">
-  import AppHeader from './components/widgets/Header/AppHeader.vue'
-  import AppSidebar from './components/widgets/Sidebar/AppSidebar.vue'
+  import { AppHeader, AppSidebar } from './components/templates'
 </script>
 
 <template>

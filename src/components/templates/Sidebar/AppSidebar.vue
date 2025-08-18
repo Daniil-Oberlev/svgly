@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import Tabs from './components/AppTabs.vue'
+  import Tabs from '@/components/shared/Tabs/AppTabs.vue'
 </script>
 
 <template>
