@@ -23,6 +23,14 @@ a {
   text-decoration: none;
 }
 
+#app {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+#app > :first-child {
+  grid-column: 1 / -1;
+}
+
 body {
   font-family: var(--main-font, sans-serif);
 }
