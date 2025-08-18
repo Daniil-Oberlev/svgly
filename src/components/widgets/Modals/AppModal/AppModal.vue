@@ -16,16 +16,23 @@
   }
 
   interface ModalProperties {
-    button: string
-    title: string
-    description: string
+    button?: string
+    title?: string
+    description?: string
+    maxWidth?: string
+    maxHeight?: string
   }
 
   defineProps<ModalProperties>()
 </script>
 
 <template>
-  <AppButton @click="openModal">{{ button }}</AppButton>
+  <slot
+    name="trigger"
+    :open="openModal"
+  >
+    <AppButton @click="openModal">{{ button }}</AppButton>
+  </slot>
   <Dialog
     :open="isOpen"
     @close="closeModal"
@@ -34,12 +41,22 @@
 
     <div class="dialog__wrapper">
       <div class="dialog__content">
-        <DialogPanel class="dialog__form">
-          <DialogTitle class="dialog__form--title">{{ title }}</DialogTitle>
-          <p class="dialog__form--description">
+        <DialogPanel
+          class="dialog__form"
+          :style="{ maxWidth, maxHeight }"
+        >
+          <DialogTitle
+            v-if="title"
+            class="dialog__form--title"
+            >{{ title }}</DialogTitle
+          >
+          <p
+            v-if="description"
+            class="dialog__form--description"
+          >
             {{ description }}
           </p>
-          <slot />
+          <slot :close="closeModal" />
         </DialogPanel>
       </div>
     </div>
@@ -69,6 +86,7 @@
   .dialog__form {
     display: flex;
     flex-direction: column;
+    width: 100%;
     gap: 1rem;
     max-width: 28rem;
     border-radius: 1rem;

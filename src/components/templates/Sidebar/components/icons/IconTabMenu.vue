@@ -1,8 +1,7 @@
 <script setup lang="ts">
   import { ref } from 'vue'
-  import AppButton from '@/components/shared/Buttons/AppButton.vue'
 
-  import AppIcon from '@/components/shared/Icon/AppIcon.vue'
+  import IconModal from '@/components/widgets/Modals/IconModal/IconModal.vue'
 
   const iconName = ref('align-end-vertical')
 </script>
@@ -11,12 +10,7 @@
   <div class="icon__form">
     <label>Иконка</label>
     <div class="icon__form-button-component">
-      <AppButton class="icon__form-button">
-        <AppIcon
-          class="icon__form-button-icon"
-          :name="iconName"
-        />
-      </AppButton>
+      <IconModal v-model="iconName" />
       <span>{{ iconName }}</span>
     </div>
   </div>
@@ -40,10 +34,5 @@
     height: 3rem;
     width: 3rem;
     padding: 0.5rem;
-  }
-
-  .icon__form-button-icon {
-    width: 100%;
-    height: 100%;
   }
 </style>
