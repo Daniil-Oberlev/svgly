@@ -21,9 +21,10 @@
   .main {
     width: 100%;
     height: calc(100vh - 2.5rem - 2px - 2rem);
+    background-color: var(--background-tertiary);
     background-image:
-      linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+      linear-gradient(var(--border-color) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
     background-size: 10px 10px;
     background-position: 0 0;
     position: relative;
