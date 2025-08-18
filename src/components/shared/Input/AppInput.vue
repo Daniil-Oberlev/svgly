@@ -70,7 +70,7 @@
   .input__value {
     color: var(--secondary-color);
     font-weight: 600;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: var(--accent-font);
   }
 
   .input__slider-container {
