@@ -19,11 +19,6 @@ pre-commit:
     type-check:
       run: yarn type-check
 
-commit-msg:
-  commands:
-    commitlint:
-      run: yarn commitlint --edit {1}
-
 pre-push:
   commands:
     build:
