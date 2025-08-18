@@ -77,6 +77,9 @@
   }
 
   .tabs-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     padding: 0.5rem 0;
     color: var(--secondary-color);
   }
