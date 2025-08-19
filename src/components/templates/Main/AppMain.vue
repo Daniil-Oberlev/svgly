@@ -1,20 +1,26 @@
 <script setup lang="ts">
   import AppIcon from '@/components/shared/Icon/AppIcon.vue'
 
-  import { useIcon } from '@/composables/useIcon'
+  import { useIconSettings } from '@/composables/useIconSettings'
+  import { useIconRemote } from '@/composables/useIconRemote'
 
-  const { currentIconName } = useIcon()
+  const { state } = useIconSettings()
+  const { currentIconRaw } = useIconRemote()
 </script>
 
 <template>
-  <div class="main">
+  <main class="main">
     <div class="icon-container">
       <AppIcon
-        :name="currentIconName"
-        :size="100"
+        :raw="currentIconRaw"
+        :width="state.size"
+        :height="state.size"
+        :stroke-width="state.strokeWidth"
+        :rotate="state.rotate"
+        :fill-opacity="state.fillOpacity"
       />
     </div>
-  </div>
+  </main>
 </template>
 
 <style scoped lang="css">

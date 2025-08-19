@@ -1,20 +1,23 @@
 <script setup lang="ts">
-  import { ref } from 'vue'
-
-  import { IconForm } from './icons'
-
+  import IconModal from '@/components/widgets/Modals/IconModal/IconModal.vue'
   import AppInput from '@/components/shared/Input/AppInput.vue'
 
-  const sizeValue = ref(100)
-  const rotateValue = ref(0)
-  const borderWidthValue = ref(2)
-  const fillOpacityValue = ref(0)
+  import { useIconSettings } from '@/composables/useIconSettings'
+  import { useIconRemote } from '@/composables/useIconRemote'
+
+  const { state } = useIconSettings()
+  const { currentIconRaw } = useIconRemote()
 </script>
 
 <template>
-  <IconForm />
+  <div class="icon__form">
+    <label>Иконка</label>
+    <div class="icon__form-button-component">
+      <IconModal v-model="currentIconRaw" />
+    </div>
+  </div>
   <AppInput
-    v-model:current-value="sizeValue"
+    v-model:current-value="state.size"
     :min-value="100"
     :max-value="600"
     :step="1"
@@ -22,7 +25,7 @@
     unit="px"
   />
   <AppInput
-    v-model:current-value="rotateValue"
+    v-model:current-value="state.rotate"
     :min-value="-180"
     :max-value="180"
     :step="1"
@@ -30,7 +33,7 @@
     unit="°"
   />
   <AppInput
-    v-model:current-value="borderWidthValue"
+    v-model:current-value="state.strokeWidth"
     :min-value="1"
     :max-value="4"
     :step="0.01"
@@ -38,7 +41,7 @@
     unit="px"
   />
   <AppInput
-    v-model:current-value="fillOpacityValue"
+    v-model:current-value="state.fillOpacity"
     :min-value="0"
     :max-value="100"
     :step="1"
@@ -46,3 +49,24 @@
     unit="%"
   />
 </template>
+
+<style lang="css" scoped>
+  .icon__form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .icon__form-button-component {
+    display: grid;
+    grid-template-columns: min-content;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .icon__form-button {
+    height: 3rem;
+    width: 3rem;
+    padding: 0.5rem;
+  }
+</style>

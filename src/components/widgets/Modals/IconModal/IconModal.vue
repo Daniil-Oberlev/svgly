@@ -5,6 +5,7 @@
 
   import AppButton from '@/components/shared/Buttons/AppButton.vue'
   import AppIcon from '@/components/shared/Icon/AppIcon.vue'
+  import { ENDPOINTS } from '@/api/endpoints'
 
   interface IconModalProperties {
     modelValue: string
@@ -16,25 +17,41 @@
   }>()
 
   const searchQuery = ref('')
-
-  const iconModules = import.meta.glob('@/icons/*.svg', { eager: true })
-  const allIconNames = Object.keys(iconModules)
-    .map(path => {
-      const match = path.match(/([^/\\]+)\.svg$/)
-      return match ? match[1] : ''
-    })
-    .filter(name => name.length > 0)
-    .sort((a, b) => a.localeCompare(b))
+  const isLoading = ref(false)
+  const allIconNames = ref<string[]>([])
 
   const filteredIconNames = computed(() => {
     const q = searchQuery.value.trim().toLowerCase()
-    if (!q) return allIconNames
-    return allIconNames.filter(name => name.toLowerCase().includes(q))
+    if (!q) return allIconNames.value
+    const result: string[] = []
+    for (const item of allIconNames.value) {
+      if (item.toLowerCase().includes(q)) result.push(item)
+    }
+    return result
   })
 
-  const selectIcon = (name: string, close: () => void): void => {
-    emit('update:modelValue', name)
+  const selectIcon = (raw: string, close: () => void): void => {
+    emit('update:modelValue', raw)
     close()
+  }
+
+  const loadIcons = async (): Promise<void> => {
+    isLoading.value = true
+    try {
+      const response = await fetch(ENDPOINTS.list)
+      const contentType = response.headers.get('content-type') ?? ''
+      if (!contentType.includes('application/json')) return
+      const list = (await response.json()) as unknown
+      if (Array.isArray(list)) {
+        const next: string[] = []
+        for (const item of list) {
+          if (typeof item === 'string') next.push(item)
+        }
+        allIconNames.value = next
+      }
+    } finally {
+      isLoading.value = false
+    }
   }
 </script>
 
@@ -47,11 +64,11 @@
     <template #trigger="{ open }">
       <AppButton
         class="icon__form-button"
-        @click="open"
+        @click="(open(), allIconNames.length === 0 && loadIcons())"
       >
         <AppIcon
           class="icon__form-button-icon"
-          :name="properties.modelValue"
+          :raw="properties.modelValue"
         />
       </AppButton>
     </template>
@@ -64,16 +81,20 @@
         class="dialog__search"
       />
 
-      <div class="icons-grid">
+      <div
+        v-if="!isLoading"
+        class="icons-grid"
+      >
         <AppButton
-          v-for="name in filteredIconNames"
-          :key="name"
+          v-for="(raw, idx) in filteredIconNames"
+          :key="idx"
           class="icons-grid__item"
-          @click="selectIcon(name, close)"
+          @click="selectIcon(raw, close)"
         >
-          <AppIcon :name="name" />
+          <AppIcon :raw="raw" />
         </AppButton>
       </div>
+      <p v-else>Загрузка...</p>
     </template>
   </AppModal>
 </template>
